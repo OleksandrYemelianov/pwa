@@ -1,39 +1,31 @@
-window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-        appId: "47cd6975-ca92-4101-8391-3b2afc31508d",
-    });
-});
-
-/*
-
-
 window.OneSignal = window.OneSignal || [];
-
-
 OneSignal.push(function() {
     OneSignal.init({
         appId: "47cd6975-ca92-4101-8391-3b2afc31508d",
-        // safari_web_id: 'ВАШ_SAFARI_WEB_ID', // Если применимо
         notifyButton: {
-            enable: true, // Показывать кнопку уведомлений
+            enable: false, // Отключаем стандартную кнопку уведомлений
         },
-        allowLocalhostAsSecureOrigin: true, // Разрешить localhost для разработки
+        allowLocalhostAsSecureOrigin: true, // Разрешаем localhost для разработки
+        serviceWorkerPath: "push/onesignal/OneSignalSDKWorker.js", // Путь к сервис-воркеру
+        serviceWorkerParam: {
+            scope: '/', // Область действия сервис-воркера
+        },
     });
 });
 
-// Кнопка подписки
-const subscribeButton = document.getElementById('subscribe');
+document.addEventListener('DOMContentLoaded', function () {
+    const subscribeButton = document.getElementById('subscribe');
+    console.log('Кнопка подписки:', subscribeButton);
 
-console.log(subscribeButton);
-
-
-subscribeButton.addEventListener('click', () => {
-    console.log('subscribeButton click...');
-    OneSignal.push(function() {
-        OneSignal.showSlidedownPrompt();
-        console.log('showSlidedownPrompt ...');
-    });
+    if (subscribeButton) {
+        subscribeButton.addEventListener('click', function() {
+            console.log('subscribeButton click...');
+            OneSignal.push(function() {
+                OneSignal.showSlidedownPrompt();
+                console.log('showSlidedownPrompt ...');
+            });
+        });
+    } else {
+        console.error("Элемент с id 'subscribe' не найден.");
+    }
 });
-*/
-
