@@ -13,9 +13,14 @@ OneSignal.push(function() {
 // Кнопка подписки
 const subscribeButton = document.getElementById('subscribe');
 
+console.log(subscribeButton);
+
+
 subscribeButton.addEventListener('click', () => {
+    console.log('subscribeButton click...');
     OneSignal.push(function() {
         OneSignal.showSlidedownPrompt();
+        console.log('showSlidedownPrompt ...');
     });
 });
 
