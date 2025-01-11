@@ -1,7 +1,7 @@
 {
   "name": "My Laomars",
   "short_name": "Laomars",
-  "start_url": "https://oleksandryemelianov.github.io/pwa/",
+  "start_url": "https://laomars.com",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2196f3",
